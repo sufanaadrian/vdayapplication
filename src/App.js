@@ -51,7 +51,7 @@ export default function App() {
   const handleValentineNoClick = () => {
     setIsSad(true);
     setMessage(
-      "Oh no, Pingu is sad again! You got another change. Do you want to be my valentine?"
+      "Oh no, Pingu is sad again! You got another chance. Do you want to be my valentine?"
     );
   };
 
