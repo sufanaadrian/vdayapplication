@@ -217,3 +217,7 @@ body {
   bottom: 0; /* Stretch to the bottom */
   z-index: 9999; /* Higher value than other elements */
 }
+
+.arrow-down-text {
+  font-size: 1rem;
+}
