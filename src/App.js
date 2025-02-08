@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
 import { FaArrowDown } from "react-icons/fa";
+import Fireworks from "@fireworks-js/react";
 
 // Import Penguin images
 import penguinImage from "./pingu.png";
@@ -16,6 +17,7 @@ export default function App() {
   const [testStarted, setTestStarted] = useState(false); // Track if test has started
   const [valentineAsked, setValentineAsked] = useState(false); // Track if Valentine question is asked
   const [valentineAnswered, setValentineAnswered] = useState(false); // Track if Valentine question is answered
+  const [showFireworks, setShowFireworks] = useState(false);
 
   // Scroll function for when you click the arrow
   const handleScrollDown = () => {
@@ -59,6 +61,7 @@ export default function App() {
     setIsSad(false);
     setMessage("Pingu is so happy! Thank you for being my Valentine!");
     setValentineAnswered(true); // Hide Yes/No buttons after answering
+    setShowFireworks(true); // Trigger fireworks effect
   };
 
   // Calculate the scale factor for the Yes button based on the number of No clicks
@@ -75,6 +78,7 @@ export default function App() {
       <div className="first-section">
         <h1 className="greeting">Hello Bambi</h1>
         <div className="arrow-container" onClick={handleScrollDown}>
+          <p className="arrow-down-text down-arrow">Press here</p>
           <FaArrowDown className="down-arrow" />
         </div>
       </div>
@@ -140,6 +144,7 @@ export default function App() {
                 </div>
               )}
             </div>
+            {showFireworks && <Fireworks className="fireworks-container" />}
 
             {/* Penguin Image */}
             <img
