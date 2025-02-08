@@ -208,12 +208,3 @@ body {
 .begin-test-button:hover {
   background-color: #45a049;
 }
-/* Ensure fireworks are over other content */
-.fireworks-container {
-  position: fixed; /* Fixed so it stays on the screen */
-  top: 0; /* Start from the top of the screen */
-  left: 0; /* Align to the left */
-  right: 0; /* Stretch to the right */
-  bottom: 0; /* Stretch to the bottom */
-  z-index: 9999; /* Higher value than other elements */
-}
