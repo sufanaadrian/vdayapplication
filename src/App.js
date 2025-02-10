@@ -9,13 +9,14 @@ export default function App() {
   const [showPenguin, setShowPenguin] = useState(false);
   const [isSad, setIsSad] = useState(false);
   const [message, setMessage] = useState(
-    "This is a test. You will need to answer one question in order to pass it. Are you ready?"
+    "This is a test. You will need to answer two questions in order to pass it. Are you ready?"
   );
   const [noButtonClicks, setNoButtonClicks] = useState(0);
   const [testStarted, setTestStarted] = useState(false);
   const [valentineAsked, setValentineAsked] = useState(false);
   const [valentineAnswered, setValentineAnswered] = useState(false);
   const [showFireworks, setShowFireworks] = useState(false);
+  const [showDinnerQuestion, setShowDinnerQuestion] = useState(false); // New state for dinner question
 
   const handleScrollDown = () => {
     setShowPenguin(true);
@@ -55,7 +56,23 @@ export default function App() {
     setIsSad(false);
     setMessage("Pingu is so happy! Thank you for being my Valentine!");
     setValentineAnswered(true);
-    setShowFireworks(true); // Trigger fireworks on "Yes"
+    setShowFireworks(true); // Trigger fireworks
+    setTimeout(() => {
+      setShowDinnerQuestion(true);
+      //setShowFireworks(false); // Trigger fireworks
+
+      // Show dinner question after a short delay
+      setMessage(
+        "Last question: Pingu wants to know what do you prefer to do for dinner?"
+      );
+    }, 3000);
+  };
+
+  const handleDinnerChoice = (choice) => {
+    setMessage(
+      `Yay! Pingu loves the idea of ${choice}! ❤️. Don't forget to notify Adilica about your choice, Love you <3`
+    );
+    setShowDinnerQuestion(false);
   };
 
   const yesButtonScale = 1 + noButtonClicks * 0.1;
@@ -129,7 +146,27 @@ export default function App() {
                   </button>
                 </div>
               )}
+
+              {showDinnerQuestion && (
+                <div className="button-container">
+                  <button
+                    className="response-button yes-button"
+                    onClick={() =>
+                      handleDinnerChoice("a romantic dinner at home")
+                    }
+                  >
+                    Romantic dinner at home
+                  </button>
+                  <button
+                    className="response-button no-button"
+                    onClick={() => handleDinnerChoice("dinner in the city")}
+                  >
+                    Dinner in the city
+                  </button>
+                </div>
+              )}
             </div>
+
             {showFireworks && <Fireworks className="fireworks-container" />}
 
             <img

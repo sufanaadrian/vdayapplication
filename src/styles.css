@@ -160,6 +160,7 @@ body {
   font-weight: bold;
   width: 45%;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 99999;
 }
 
 /* Yes Button */
@@ -215,7 +216,7 @@ body {
   left: 0; /* Align to the left */
   right: 0; /* Stretch to the right */
   bottom: 0; /* Stretch to the bottom */
-  z-index: 9999; /* Higher value than other elements */
+  z-index: 999; /* Higher value than other elements */
 }
 
 .arrow-down-text {
